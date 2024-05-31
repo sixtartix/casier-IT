@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Casier à Téléphones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+        }
+        h2 {
+            color: #555;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        ol {
+            padding-left: 30px;
+        }
+        code {
+            font-family: 'Courier New', monospace;
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+        }
+        .notice-header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .logo {
+            height: 50px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="notice-header">Notice Casier à Téléphones</div>
+        <h1>Casier à Téléphones</h1>
+
+        <h2>Description du Projet</h2>
+        <p>Ce projet consiste à transformer un lecteur DVD d'un vieux ordinateur en casier pour ranger les téléphones. Chaque casier est contrôlé par une carte Arduino et utilise la technologie NFC pour l'ouverture et la fermeture. Le système comprend un capteur de présence pour détecter si un téléphone est à l'intérieur, ainsi qu'un écran LCD pour afficher l'état des casiers.</p>
+
+        <h2>Composants Utilisés</h2>
+        <ol>
+            <li><strong>Arduino UNO</strong>: Carte de contrôle principale.</li>
+            <li><strong>Lecteur NFC (MFRC522)</strong>: Pour lire les badges NFC.</li>
+            <li><strong>Écran LCD (16x2)</strong>: Pour afficher les messages à l'utilisateur.</li>
+            <li><strong>Capteur de Présence Ultrasonique</strong>: Pour détecter la présence d'un téléphone dans le casier.</li>
+            <li><strong>Mécanisme de Verrouillage Électronique</strong>: Pour ouvrir et fermer le casier.</li>
+            <li><strong>Buzzer</strong>: Pour fournir un retour sonore (positif ou négatif).</li>
+        </ol>
+
+        <h2>Fonctionnement Général</h2>
+        <h3>1. Lecture du Badge NFC</h3>
+        <p>Chaque casier est équipé d'un lecteur NFC. Lorsque l'utilisateur présente son badge NFC, le lecteur vérifie si le badge est valide.</p>
+
+        <h3>2. Ouverture et Fermeture du Casier</h3>
+        <ul>
+            <li>Si le badge est valide, le casier s'ouvre et reste ouvert pendant 5 secondes, permettant à l'utilisateur de déposer ou récupérer son téléphone.</li>
+            <li>Après 5 secondes, le casier se referme automatiquement.</li>
+        </ul>
+
+        <h3>3. Affichage sur l'Écran LCD</h3>
+        <p>L'écran LCD 16x2 affiche des messages pour guider l'utilisateur à chaque étape.</p>
+        <p>Messages affichés :</p>
+        <ul>
+            <li><code>Badgez svp</code> : Invite l'utilisateur à présenter son badge.</li>
+            <li><code>Ouverture</code> : Indique que le casier est en train de s'ouvrir.</li>
+            <li><code>Déposez le téléphone</code> : Demande à l'utilisateur de déposer le téléphone dans le casier.</li>
+            <li><code>Fermeture</code> : Indique que le casier est en train de se fermer.</li>
+        </ul>
+
+        <h3>4. Détection de la Présence du Téléphone</h3>
+        <p>Le capteur ultrasonique à l'intérieur du casier détecte si un téléphone est présent. Cela permet de connaître l'état du casier (occupé ou disponible). Si le casier est vide, cela n'est pas considéré comme une erreur ; cela signifie simplement que l'utilisateur a choisi de ne pas déposer son téléphone.</p>
+
+        <h3>5. Indication par Buzzer</h3>
+        <p>Le buzzer émet un son pour indiquer si le badge présenté est valide ou non :</p>
+        <ul>
+            <li>Son positif : Badge valide.</li>
+            <li>Son négatif : Badge invalide.</li>
+        </ul>
+
+        <h2>Interface Utilisateur</h2>
+        <h3>Écran LCD</h3>
+        <p>Le système utilise un écran LCD pour afficher l'état des casiers.</p>
+        <p>Significations : "C" signifie "Casier" suivie de 1 ou 2 pour le numéro de casier </p>
+        <p>"O" signifie q'un téléphone est présent dans casier (Occupé).</p>
+        <p>"D" signifie que le casier est vide (Disponible).</p>
+        <p>Exemple d'affichage :</p>
+        <code>Badgez svp<br>C1 : O | C2 : D</code>
+
+        <h2>Conclusion</h2>
+        <p>Votre casier à téléphones est maintenant équipé pour fournir une solution efficace et sécurisée pour le rangement des téléphones. Le système est facile à utiliser grâce à son interface claire et ses indications visuelles et sonores. Suivez cette notice pour comprendre le fonctionnement et l'utilisation de chaque composant du casier.</p>
+        
+        <p>Fabriqué en France par le lycée Tocqueville - STI2D : Dorian Guerin, Lorris Garçon, Théo Lemaitre, Ethan BUGHIN--MESNIL.</p>
+        <p>
+        <img class="logo" src="https://cdn.discordapp.com/attachments/1211815300622717009/1246233019715420321/fabrique_france_550.png?ex=665ba471&is=665a52f1&hm=f526a53d7ad23e91aa547d64eb2bdc6b5ee345d682b51b019d3eb84b8f0bf3d7&" alt="Fabriqué en France"> 
+        <img class="logo" src="https://leshameauxbio.fr/wp-content/uploads/2021/06/Pictogramme-recyclage-point-vert.jpg" alt="Recyclable"> Ce produit est fabriqué en France et recyclable.</p>
+    </div>
+</body>
+</html>
